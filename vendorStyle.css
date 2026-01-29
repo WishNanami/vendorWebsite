@@ -1,0 +1,104 @@
+.pending-box {
+    margin-top: 80px;          /* space from content above */
+    padding: 40px;
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    border: 6px solid rgba(255, 0, 0);
+    border-radius: 12px;
+}
+
+.button {
+  display: inline-block;
+  padding: 5px 5px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.button:hover {
+  background-color: #0056b3;
+}
+
+.grid-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 10px;
+}
+
+.grid-column{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.grid-row-radio {
+    display: grid;
+    column-gap: 8px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: flex-start; /* key fix */
+    column-gap: 8px;
+    cursor: pointer;
+}
+
+.radio-item input[type="radio"] {
+    flex-shrink: 0; /* prevents stretching */
+    margin-top: 8px; /* aligns with text */
+}
+
+.grid-column-full-width {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grid-column-full-width input {
+    grid-column: span 3;
+}
+
+.grid-column-full-width .input-group {
+    grid-column: span 3;
+}
+
+.grid-row-full-width {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-bottom: 10px;
+}
+
+table{
+    width: 100%;             /* full width */
+    border-collapse: collapse; /* removes double borders */
+    text-align: left;
+}
+
+table th,
+table td {
+    border: 1px solid #333; /* border for all cells */
+    padding: 8px 12px;       /* space inside cells */
+}
+
+table th {
+    background-color: #cfe2ff; /* blue header */
+    color: black;               /* header text color */
+}
+
+Table input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+Table button {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #dc3545; /* red delete button */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+Table button:hover {
+    background-color: #c82333;
+}
