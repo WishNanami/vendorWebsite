@@ -204,7 +204,7 @@
         </div >
         <div class="grid-row">
             <div class="grid-column">
-                <label for="CompanyOrganisation">Comapany Organisation</label>
+                <label for="CompanyOrganisation">Company Organisation</label>
                 <div class="grid-row-radio" id="CompanyOrganisationGroup" data-field="companyOrganisation">
                     <label class="radio-item">
                         <input type="radio" name="CompanyOrganisation" value="More than 15" disabled
@@ -464,7 +464,7 @@
             
         <div class="accordion-item">
         <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><label>Part C : Particulars of Directors & Company Secretery</label></button>
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><label>Part C : Particulars of Directors & Company Secretary</label></button>
         </h2>
         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
         <div class="accordion-body">
@@ -651,7 +651,7 @@
         
             <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-        <div><label for="bankruptcy">Does the Company have history of backruptcy?</label></div>
+        <div><label for="bankruptcy">Does the Company have history of bankruptcy?</label></div>
         
         <div><input type="radio" name="bankruptcy" id="bankrupt-yes" value="yes" onclick="bankruptYes()" required>
         <label for="bankrupt-yes">yes</label></div>
@@ -883,11 +883,11 @@
                 </div>
                 <div>
                     <input type="radio" name="ValueOfSimilarProject" value="5M-9.9M" id="5M-9.9M">
-                    <label for="5M-9.9M">Rm5M and mroe but less than 9.9M</label>
+                    <label for="5M-9.9M">RM5M and more but less than RM9.9M</label>
                 </div>
                 <div>
                     <input type="radio" name="ValueOfSimilarProject" value="1M-4.9M" id="1M-4.9M">
-                    <label for="1M-4.9M">RM1M and more but less than Rm4.9M</label>
+                    <label for="1M-4.9M">RM1M and more but less than RM4.9M</label>
                 </div>
                 <div>
                     <input type="radio" name="ValueOfSimilarProject" value="<1M" id="<1M">
@@ -1067,7 +1067,7 @@ The Contractor is required to complete the form by listing all plant and machine
                 <tr>
                     <td><input min="1" type="number" name="CurrentProjectNo[]"></td>
                     <td><input type="text" name="CurrentProjTitle[]"></td>
-                    <td><input type="text" name="CurrentPorjNature[]"></td>
+                    <td><input type="text" name="CurrentProjNature[]"></td>
                     <td><input type="text" name="CurrentProjLocation[]"></td>
                     <td><input type="text" name="CurrentProjName[]"></td>
                     <td><input type="text" name="CurrentProjValue[]"></td>
@@ -1096,7 +1096,7 @@ The Contractor is required to complete the form by listing all plant and machine
         </div>
         <div class="grid-row">
             <div class="grid-column">
-            <label for="PrimaryTelephone">Telephone Nuumber</label><input type="text" id="PrimaryTelephone" name="PrimaryTelephone" required>
+            <label for="PrimaryTelephone">Telephone Number</label><input type="text" id="PrimaryTelephone" name="PrimaryTelephone" required>
             </div>
             <div class="grid-column">
             <label for="PrimaryEmail">Email</label><input type="Email" id="PrimaryEmail" name="PrimaryEmail" required>
@@ -1114,7 +1114,7 @@ The Contractor is required to complete the form by listing all plant and machine
         </div>
         <div class="grid-row">
             <div class="grid-column">
-            <label for="SecondaryTelephone">Telephone Nuumber</label><input type="text" id="SecondaryTelephone" name="SecondaryTelephone" required>
+            <label for="SecondaryTelephone">Telephone Number</label><input type="text" id="SecondaryTelephone" name="SecondaryTelephone" required>
             </div>
             <div class="grid-column">
             <label for="SecondaryEmail">Email</label><input type="Email" id="SecondaryEmail" name="SecondaryEmail" required>

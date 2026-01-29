@@ -11,21 +11,30 @@ $table = $_POST['Table'];
 
 if ($table === 'Shareholders'){
     $sql = "
-    INSERT INTO Shareholders
+    INSERT INTO shareholders
     (ShareHolderID, NewCompanyRegistration, time, nationality, name, address, share)
     VALUES (?, ?, ?, ?, ?, ?, ?)
     ";
 
     $stmt = $conn->prepare($sql);
+    // assign to variables because bind_param requires variables (passed by reference)
+    $shareHolderID = isset($_POST['ShareHolderID']) ? (int)$_POST['ShareHolderID'] : 0;
+    $newCompanyRegistration = isset($_POST['NewCompanyRegistration']) ? (int)$_POST['NewCompanyRegistration'] : 0;
+    $time = $_POST['time'] ?? '';
+    $nationality = $_POST['nationality'] ?? '';
+    $name = $_POST['name'] ?? '';
+    $address = $_POST['address'] ?? '';
+    $share = isset($_POST['share']) ? (float)$_POST['share'] : 0.0;
+
     $stmt->bind_param(
         "iissssd",
-        $_POST['ShareHolderID'],
-        $_POST['NewCompanyRegistration'],
-        $_POST['time'],
-        $_POST['nationality'],
-        $_POST['name'],
-        $_POST['address'],
-        $_POST['share']
+        $shareHolderID,
+        $newCompanyRegistration,
+        $time,
+        $nationality,
+        $name,
+        $address,
+        $share
     );
 
     if ($stmt->execute()) {
@@ -41,21 +50,29 @@ if ($table === 'Shareholders'){
     }
 } else if($table === 'DirectorAndSecretary'){
     $sql = "
-    INSERT INTO DirectorAndSecretary
+    INSERT INTO directorandsecretary
     (NewCompanyRegistration, time, nationality, name, position, appoitmentDate, DOB)
     VALUES (?, ?, ?, ?, ?, ?, ?)
     ";
 
     $stmt = $conn->prepare($sql);
+    $newCompanyRegistration = isset($_POST['NewCompanyRegistration']) ? (int)$_POST['NewCompanyRegistration'] : 0;
+    $time = $_POST['time'] ?? '';
+    $nationality = $_POST['nationality'] ?? '';
+    $name = $_POST['name'] ?? '';
+    $position = $_POST['position'] ?? '';
+    $appoitmentDate = $_POST['appoitmentDate'] ?? '';
+    $DOB = $_POST['DOB'] ?? '';
+
     $stmt->bind_param(
         "issssss",
-        $_POST['NewCompanyRegistration'],
-        $_POST['time'],
-        $_POST['nationality'],
-        $_POST['name'],
-        $_POST['position'],
-        $_POST['appoitmentDate'],
-        $_POST['DOB']
+        $newCompanyRegistration,
+        $time,
+        $nationality,
+        $name,
+        $position,
+        $appoitmentDate,
+        $DOB
     );
 
     if ($stmt->execute()) {
@@ -76,15 +93,23 @@ if ($table === 'Shareholders'){
     ";
 
     $stmt = $conn->prepare($sql);
+    $newCompanyRegistration = isset($_POST['NewCompanyRegistration']) ? (int)$_POST['NewCompanyRegistration'] : 0;
+    $time = $_POST['time'] ?? '';
+    $nationality = $_POST['nationality'] ?? '';
+    $name = $_POST['name'] ?? '';
+    $position = $_POST['position'] ?? '';
+    $yearsInPosition = isset($_POST['yearsInPosition']) ? (int)$_POST['yearsInPosition'] : 0;
+    $yearsInRelatedField = isset($_POST['yearsInRelatedField']) ? (int)$_POST['yearsInRelatedField'] : 0;
+
     $stmt->bind_param(
         "issssii",
-        $_POST['NewCompanyRegistration'],
-        $_POST['time'],
-        $_POST['nationality'],
-        $_POST['name'],
-        $_POST['position'],
-        $_POST['yearsInPosition'],
-        $_POST['yearsInRelatedField']
+        $newCompanyRegistration,
+        $time,
+        $nationality,
+        $name,
+        $position,
+        $yearsInPosition,
+        $yearsInRelatedField
     );
 
     if ($stmt->execute()) {

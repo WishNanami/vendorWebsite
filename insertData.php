@@ -438,7 +438,7 @@ $CreditStmt->close();
 //CurrentProject
 $CurrentProjectNo       = $_POST['CurrentProjectNo'] ?? [];
 $CurrentProjTitle       = $_POST['CurrentProjTitle'] ?? [];
-$CurrentPorjNature      = $_POST['CurrentPorjNature'] ?? [];
+$CurrentProjNature      = $_POST['CurrentProjNature'] ?? [];
 $CurrentProjLocation    = $_POST['CurrentProjLocation'] ?? [];
 $CurrentProjName        = $_POST['CurrentProjName'] ?? [];
 $CurrentProjValue       = $_POST['CurrentProjValue'] ?? [];
@@ -468,7 +468,7 @@ for ($i = 0; $i < count($CurrentProjectNo); $i++) {
     if (
         empty($CurrentProjectNo[$i]) &&
         empty($CurrentProjTitle[$i]) &&
-        empty($CurrentPorjNature[$i])
+        empty($CurrentProjNature[$i])
     ) {
         continue;
     }
@@ -479,7 +479,7 @@ for ($i = 0; $i < count($CurrentProjectNo); $i++) {
         $newCRN,
         $currentDate,
         $CurrentProjTitle[$i],     
-        $CurrentPorjNature[$i],    
+        $CurrentProjNature[$i],    
         $CurrentProjLocation[$i],  
         $CurrentProjName[$i],      
         $CurrentProjValue[$i],     
@@ -708,7 +708,7 @@ foreach ($equipmentData as $eq) {
 $EquipmentStmt->close();
 
 //Management
-$ManagementName              = $_POST['MangementName'] ?? [];
+$ManagementName              = $_POST['ManagementName'] ?? [];
 $ManagementNationality       = $_POST['ManagementNationality'] ?? [];
 $ManagementPosition          = $_POST['ManagementPosition'] ?? [];
 $ManagementYearsInPosition   = $_POST['ManagementYearInPosition'] ?? [];

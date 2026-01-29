@@ -359,9 +359,9 @@ CREATE TABLE `shareholders` (
 --
 
 INSERT INTO `shareholders` (`ShareHolderID`, `NewCompanyRegistration`, `time`, `nationality`, `name`, `address`, `share`) VALUES
-(2, 1, '2026-01-10', 'ioup', 'iou', 'asdad', 50.00),
-(3, 1, '2026-01-10', 'asdasd', 'asdf', 'asdad', 50.00),
-(4, 1, '2026-01-10', 'asdqwe', 'qweasd', 'asdqwe', 20.00);
+(2, 1, '2026-01-10', 'ioup', 'iou', 'asdad', 40.00),
+(3, 1, '2026-01-10', 'asdasd', 'asdf', 'asdad', 35.00),
+(4, 1, '2026-01-10', 'asdqwe', 'qweasd', 'asdqwe', 25.00);
 
 -- --------------------------------------------------------
 
@@ -518,6 +518,12 @@ ALTER TABLE `bank`
   MODIFY `BankID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
+-- AUTO_INCREMENT for table `currentproject`
+--
+ALTER TABLE `currentproject`
+  MODIFY `CurrentprojectNo` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
@@ -536,10 +542,28 @@ ALTER TABLE `directorandsecretary`
   MODIFY `DirectorID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `equipment`
+--
+ALTER TABLE `equipment`
+  MODIFY `equipmentID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `management`
 --
 ALTER TABLE `management`
   MODIFY `ManagementID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `projecttrackrecord`
+--
+ALTER TABLE `projecttrackrecord`
+  MODIFY `projectRecordNo` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `staffNO` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

@@ -400,7 +400,7 @@ function addCurrentProjectRecord() {
 
     const fields = [
         "CurrentProjTitle[]",
-        "CurrentPorjNature[]",
+        "CurrentProjNature[]",
         "CurrentProjLocation[]",
         "CurrentProjName[]",
         "CurrentProjValue[]",
