@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $companyID = $_POST['AccountID'] ?? '';
     $password  = $_POST['accountPassword'] ?? '';
 
-    $stmt = $conn->prepare("SELECT accountID, password, role FROM vendoraccount WHERE accountID = ?");
+    $stmt = $conn->prepare("SELECT accountID, password, role, email FROM vendoraccount WHERE accountID = ?");
     $stmt->bind_param("s", $companyID);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -20,8 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_regenerate_id(true);
             $_SESSION['accountID'] = $user['accountID'];
             $_SESSION['role']      = $user['role'];
+            // store email and a display name for vendor pages
+            $_SESSION['email']     = $user['email'] ?? '';
+            $_SESSION['username']  = $user['accountID'];
 
-            $location = ($user['role'] === 'admin') ? "admin.php" : "registration.php";
+            $location = ($user['role'] === 'admin') ? "admin.php" : "VendorHomepage.php";
             header("Location: $location");
             exit();
         }

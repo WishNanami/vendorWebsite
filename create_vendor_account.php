@@ -117,49 +117,137 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
     <style>
-        form {
-            max-width: 400px;
-            background: #f5f5f5;
-            padding: 20px;
-            margin: 40px auto;
-            border-radius: 8px;
+        :root {
+            --primary-color: #059669;
+            --primary-hover: #047857;
+            --bg-gradient: linear-gradient(135deg, #064e3b, #065f46);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
         }
-        input, select, button {
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-gradient);
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+
+        .create-card {
+            background: #ffffff;
             width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            box-sizing: border-box;
-        }
-        button {
-            background: #007bff;
-            color: white;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .msg {
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
             text-align: center;
-            margin-top: 15px;
-            font-weight: bold;
-            padding: 10px;
-            border-radius: 5px;
         }
+
+        .create-card h2 {
+            margin: 0 0 10px;
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .create-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: var(--primary-hover);
+        }
+
+        .message {
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 20px;
+            border: 1px solid;
+        }
+
         .success {
-            color: green;
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
+            background: #f0fdf4;
+            color: #166534;
+            border-color: #bbf7d0;
         }
+
         .error {
-            color: red;
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
+            background: #fef2f2;
+            color: #b91c1c;
+            border-color: #fecaca;
+        }
+
+        .links {
+            margin-top: 25px;
+            font-size: 13px;
+        }
+
+        .links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        #vendorTypeDiv {
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -187,40 +275,51 @@ window.addEventListener('load', function() {
 });
 </script>
 
-<h2 style="text-align:center;">Create Account</h2>
-
-<form method="post" id="createAccountForm">
-    <label>Email Address</label>
-    <input type="email" name="email" required>
-
-    <label>Role</label>
-    <select name="role" id="roleSelect" required onchange="toggleVendorType()">
-        <option value="">-- Select Role --</option>
-        <option value="admin">Admin</option>
-        <option value="vendor">Vendor</option>
-    </select>
-
-    <div id="vendorTypeDiv" style="display:none;">
-        <label>Vendor Type</label>
-        <select name="vendor_type" id="vendorTypeSelect">
-            <option value="">-- Select Vendor Type --</option>
-            <option value="Civil Contractor">Civil Contractor</option>
-            <option value="Supplier">Supplier</option>
-            <option value="TMP Contractor">TMP Contractor</option>
-            <option value="General Contractor">General Contractor</option>
-        </select>
-    </div>
-
-    <button type="submit">Send Setup Link</button>
+<div class="create-card">
+    <h2>Create Account</h2>
+    <p>Set up a new vendor or admin account</p>
 
     <?php if ($message): ?>
-        <p class="msg <?php echo $messageType; ?>"><?php echo $message; ?></p>
+        <div class="message <?php echo $messageType; ?>">
+            <?php echo $message; ?>
+        </div>
     <?php endif; ?>
-</form>
 
-<p style="text-align:center;">
-    <a href="admin.php">← Back to Admin Panel</a>
-</p>
+    <form method="post" id="createAccountForm">
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="Enter email address" required>
+        </div>
+
+        <div class="form-group">
+            <label>Role</label>
+            <select name="role" id="roleSelect" required onchange="toggleVendorType()">
+                <option value="">-- Select Role --</option>
+                <option value="admin">Admin</option>
+                <option value="vendor">Vendor</option>
+            </select>
+        </div>
+
+        <div id="vendorTypeDiv" style="display:none;">
+            <div class="form-group">
+                <label>Vendor Type</label>
+                <select name="vendor_type" id="vendorTypeSelect">
+                    <option value="">-- Select Vendor Type --</option>
+                    <option value="Civil Contractor">Civil Contractor</option>
+                    <option value="Supplier">Supplier</option>
+                    <option value="TMP Contractor">TMP Contractor</option>
+                    <option value="General Contractor">General Contractor</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit">Send Setup Link</button>
+    </form>
+
+    <div class="links">
+        <a href="admin.php">← Back to Admin Panel</a>
+    </div>
+</div>
 
 </body>
 </html>
