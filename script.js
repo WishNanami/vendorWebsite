@@ -1,5 +1,3 @@
-console.log("registration.js loaded")
-
 function addShareholders(){
     const table = document.getElementById("shareholderTable");
     

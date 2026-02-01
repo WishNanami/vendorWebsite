@@ -80,10 +80,9 @@ $keyword = $_GET['keyword'] ?? '';
 <h1>Admin Panel</h1>
 <div class="top-right">
     <a href="create_vendor_account.php" class="add-btn">+ Add Account</a>
-    <form method="post" action="ClearDatabase.php"style="display:inline"  onsubmit="return confirm('Are you sure you want to clear the entire database? \nThis action cannot be undone.');">
-        <button type="submit"  name="clear_database" class="clear-btn">
-            Clear Database
-        </button>
+    <form method="post" action="ClearDatabase.php" style="display:inline" onsubmit="return confirm('Are you sure you want to clear the entire database? \nThis action cannot be undone.');">
+        <button type="submit" name="clear_database" class="clear-btn">Clear Database</button>
+    </form>
 </div>
 <p>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></p>
 <a href="logout.php">Logout</a>

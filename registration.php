@@ -843,9 +843,7 @@ function autoFillTestData() {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>console.log("registration.php start loaded");</script>
     <script src="script.js"></script>
-    <script>console.log("registration.php try loaded");</script>
 
 </body>
 </html>
