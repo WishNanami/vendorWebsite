@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'vendor') {
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 ?>

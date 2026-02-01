@@ -38,7 +38,7 @@ if (isset($_POST['update'])) {
         $update->bind_param("ss", $newPassword, $row['accountID']);
         $update->execute();
 
-        $message = "Password updated successfully. <a href='login.php'>Login</a>";
+        $message = "Password updated successfully. <a href='index.php'>Login</a>";
 
     } else {
         $message = "Invalid or expired reset link.";
