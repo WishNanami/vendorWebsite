@@ -174,12 +174,12 @@ unset($_SESSION['error_msg']);
     <form method="POST" action="">
         <div class="form-group">
             <label>Account ID</label>
-            <input type="text" name="AccountID" placeholder="Enter your ID" required>
+            <input type="text" name="AccountID" placeholder="Enter Account ID" required>
         </div>
         
         <div class="form-group">
             <label>Password</label>
-            <input type="password" name="accountPassword" placeholder="••••••••" required>
+            <input type="password" name="accountPassword" placeholder="Enter your password" required>
         </div>
 
         <button type="submit">Log In to Dashboard</button>
